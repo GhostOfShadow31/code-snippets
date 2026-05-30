@@ -1,5 +1,5 @@
 """
-Structure de données : Pile (LIFO)
+Data Structure : Stack (LIFO)
 """
 
 class Stack:
