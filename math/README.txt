@@ -1,0 +1,11 @@
+Liste de module mathématique à implémenter :
+- GCD
+- LCM
+- Prime Check
+- Sieve of Eratosthenes
+- Factorial
+- Fibonnaci
+- Power Fast
+- Matrix Multiplication
+- Vector2
+- Statistics Basic (Moyenne, Médianne, Variance etc)
