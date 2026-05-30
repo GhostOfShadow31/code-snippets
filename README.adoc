@@ -1,0 +1,103 @@
+= Code Snippets & Computer Science Playground
+
+This repository contains implementations, notes, and experiments related to fundamental computer science topics.
+It is primarily intended as a personal learning resource and a collection of reusable code snippets.
+
+== Repository Structure
+
+The project is organized into several main categories:
+
+[source,text]
+----
+algorithms/
+    graph/
+    search/
+    sorting/
+
+data_structures/
+    linked_list/
+    queue/
+    stack/
+
+design_patterns/
+math/
+utils/
+----
+
+Each folder typically contains:
+
+- A short README explaining the concept
+- One or more Python implementations
+- Unit tests when applicable
+
+== Contents Overview
+
+=== Algorithms
+
+Classic algorithm implementations such as:
+
+- Graph algorithms
+- Search techniques
+- Sorting algorithms
+
+=== Data Structures
+
+Core data structures including:
+
+- Stack
+- Queue
+- Linked List
+
+Each implementation includes basic tests to validate correctness.
+
+=== Design Patterns
+
+Notes and examples related to common software design patterns.
+
+=== Math
+
+Mathematical concepts and utilities used in computer science.
+
+=== Utils
+
+Helper functions and reusable utilities.
+
+== Getting Started
+
+Clone the repository:
+
+[source,bash]
+----
+git clone https://github.com/GhostOfShadow31/code-snippets.git
+cd code-snippets
+----
+
+Run tests (depending on your setup):
+
+[source,bash]
+----
+python -m unittest discover
+----
+
+or:
+
+[source,bash]
+----
+pytest
+----
+
+== Purpose
+
+This repository is not a production library.
+It is meant for:
+
+- Learning and practicing core CS concepts
+- Keeping clean reference implementations
+- Experimenting with ideas
+- Building intuition through code
+
+== Notes
+
+- Code is written in Python
+- Documentation is intentionally kept simple and educational
+- Some modules may be incomplete or exploratory
