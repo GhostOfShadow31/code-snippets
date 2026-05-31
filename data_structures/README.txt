@@ -1,13 +1,10 @@
-Ce répertoire offre des modèle de données connu, avec des méthodes propres à chacun
-Chaque model est testé via une batterie de test dans le répertoire tests/ du modèle
-
-Commande pour effacer le cache depuis data_strauctures :
+Command to clear the cache from data_structures :
 find . -type d -name "__pycache__" -exec rm -r {} +
 
-Commande pour lancer les tests depuis le répertoire modèle :
+Command to launch tests from the template directory (stack/, queue/, ...):
 python3 -m unittest
 
-Liste de structures de données à implémenter :
+List of data structure to implement :
 - Linked List
 - Set
 - Dequeu

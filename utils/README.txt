@@ -1,4 +1,4 @@
-Liste d'outils générique à implémenter :
+List of generic tools to implement :
 - Timer
 - File_reader
 - JSON Helper

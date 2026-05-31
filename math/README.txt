@@ -1,4 +1,4 @@
-Liste de module mathématique à implémenter :
+List of math module to implement :
 - GCD
 - LCM
 - Prime Check

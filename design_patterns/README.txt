@@ -1,4 +1,4 @@
-Liste de design patterns à implémenter :
+List of design patterns to implement :
 - Singleton
 - Factory
 - Observer

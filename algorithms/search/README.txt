@@ -1,4 +1,4 @@
-Liste d'algorithme de recherche à implémenter :
+List of search algorithms to implement :
 - Linear Search
 - Binary Search
 - Jump Search

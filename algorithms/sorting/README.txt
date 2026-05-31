@@ -1,4 +1,4 @@
-Liste d'algorithme de trie à implémenter :
+List of sorting algorithms to implement :
 - Bubble Sort
 - Selection Sort
 - Insertion Sort

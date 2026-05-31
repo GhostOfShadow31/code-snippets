@@ -1,4 +1,4 @@
-Liste d'algorithme de graphe à implémenter :
+List of graph algorithms to implement :
 - DFS
 - BFS
 - Dijkastra
