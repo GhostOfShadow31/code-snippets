@@ -3,7 +3,7 @@ from linked_list import LinkedList
 
 class TestLinkedList(unittest.TestCase):
     """
-    Tests de l'implémentation de la liste chainée (LinkedList)
+    Testing the linked list implementation.
     """
 
     def test_new_list_is_empty(self):

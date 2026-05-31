@@ -1,23 +1,22 @@
-"""
-Structure de donnée : Noeud
-"""
-
 class Node:
     """
-    Représente un noeud (Node), un élément d'une liste chainée (LinkedList)
+    A data structure called Node, represents an element of a LinkedList
     """
 
-    def __init__(self, value):
+    def __init__(self, value: any) -> None:
         """
-        Initialise un noeud
+        Initialize a node.
         """
 
         self.value = value
         self.next = None
     
-    def __str__(self):
+    def __str__(self) -> str:
         """
-        Représentation textuelle d'un noeud
+        Return a textual representation of the node.
+
+        Reeturn:
+            str: the textual representation of the node
         """
 
         return f"{self.value}"

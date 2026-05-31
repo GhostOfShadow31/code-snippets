@@ -1,34 +1,30 @@
-""""
-Structure de données : Linked List
-"""
-
 from node import Node
 
 class LinkedList:
     """
-    Représente une liste chainée (LinkedList) composée de noeud (Node).
+    A data structure called LinkedList, composed of nodes.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
-        Initialise une liste chainée.
+        Initialize a linked list.
         """
 
         self.head = None
         self.tail = None
         self.length = 0
     
-    def append(self, item):
+    def append(self, item: any) -> None:
         """
-        Ajoute un noeud à la fin de la liste chainée.
+        Add a node at the tail of the linked list.
         
-        Parameters:
-            item: noeud à ajouter
+        Args:
+            item: item to add
         """
 
         element = Node(item)
 
-        if self.head is None: # LinkedList vide
+        if self.head is None:
             self.head = element
             self.tail = element
         else:
@@ -37,17 +33,17 @@ class LinkedList:
         
         self.length += 1
     
-    def prepend(self, item):
+    def prepend(self, item: any) -> None:
         """
-        Ajoute un noeud au début de la liste chainée.
+        Add a node at the head of the linked list.
         
-        Parameters:
-            item: noeud à ajouter
+        Args:
+            item: item to add
         """
 
         element = Node(item)
 
-        if self.head is None: # LinkedList vide
+        if self.head is None:
             self.head = element
             self.tail = element
         else:
@@ -56,31 +52,34 @@ class LinkedList:
         
         self.length += 1
 
-    def insert(self, index, item):
+    def insert(self, index: int, item: any) -> None:
         """
-        Insert un item à un indec donnée dans la liste chainée.
+        Insert an item at a given index in the linked list.
         
-        Parameters:
-            index: index d'insertion
-            item: noeud à ajouter
+        Args:
+            index: given index
+            item: item to add
         
         Raises:
-            IndexError: si l'index est invalide
+            IndexError: if invalid index
         """
 
+        # Convert into an absolute index to account for positive and negative indices
         absolute_index = index if index >= 0 else self.length + index
 
-        if absolute_index > self.length: # Index hors de portée
-            raise IndexError("Index hors de portée")
+        if absolute_index > self.length:
+            raise IndexError("Index out of range.")
         
-        if absolute_index == 0: # Ajout au début de la liste chainée
+        # Use of dedicated functions for special cases
+        if absolute_index == 0:
             self.prepend(item)
             return
         
-        if absolute_index == self.length: # Ajout à la fin de la liste chainée
+        if absolute_index == self.length:
             self.append(item)
             return
 
+        # Find the position and insert the item
         element = Node(item)
         iterator = self.head
         compteur = 0
@@ -89,24 +88,23 @@ class LinkedList:
             iterator = iterator.next
             compteur += 1
         
-        # Insertion
         element.next = iterator.next
         iterator.next = element
         
         self.length += 1
     
-    def remove(self, item):
+    def remove(self, item: any) -> None:
         """
-        Supprimer un noeud de la liste chainée.
+        Remove a node from the linked list.
         
-        Parameters:
-            item: noeud à retirer
+        Args:
+            item: item to remove
         """
 
         if self.length == 0:
             return
 
-        # Supression du head
+        # Special case: remove the head
         if self.head.value == item:
             self.head = self.head.next
             self.length -= 1
@@ -116,7 +114,7 @@ class LinkedList:
             
             return
     
-
+        # Nominal case
         prev = self.head
         current = self.head.next
 
@@ -124,7 +122,7 @@ class LinkedList:
             if current.value == item:
                 prev.next = current.next
 
-                # Mise à jour du tail si besoin
+                # Update tail if needed
                 if current == self.tail:
                     self.tail = prev
                 
@@ -134,22 +132,23 @@ class LinkedList:
             prev = current
             current = current.next
 
-    def pop(self, index=-1):
+    def pop(self, index: int =-1) -> any:
         """
-        Supprimer et retourne un noeud à l'indice donné
+        Remove and return the node at a given index.
         
-        Parameters:
-            index: l'index du noeud à supprimer
+        Args:
+            index: given index
         
         Raises:
-            IndexError: si l'index est hors de portée
+            IndexError: if invalid index
         """
+        # Convert into an absolute index to account for positive and negative indices
         absolute_index = index if index >= 0 else self.length + index
 
-        if absolute_index < 0 or absolute_index >= self.length: # Index hors de portée
-            raise IndexError("Index hors de portée")
+        if absolute_index < 0 or absolute_index >= self.length:
+            raise IndexError("Index out of range.")
 
-        # Suppression du head
+        # Special case: remove the head
         if absolute_index == 0:
             value = self.head.value
             self.head = self.head.next
@@ -160,6 +159,7 @@ class LinkedList:
             self.length -= 1
             return value
         
+        # Nominal case
         prev = self.head
         
         for _ in range(absolute_index - 1):
@@ -170,19 +170,23 @@ class LinkedList:
         
         prev.next = current.next
 
-        # Mise à jour du tail si besoin
+        # Update tail if needed
         if current == self.tail:
             self.tail = prev
         
         self.length -= 1
         return value
 
-    def find(self, item):
+    def find(self, item: any) -> Node | None:
         """
-        Trouve un item dans la liste chainée ou renvoie None
+        Find and return a node in the linked list.
         
-        Parameters:
-            item: l'item à trouver
+        Args:
+            item: item to find
+        
+        Return:
+            Node: the item in the linked list
+            None: if the item is not present in the linked list
         """
         iterator = self.head
 
@@ -194,55 +198,64 @@ class LinkedList:
         
         return None
     
-    def contains(self, item):
+    def contains(self, item: any) -> bool:
         """
-        Vérifie si un item est contenu dans la liste chainée
+        Check if a given item is in the linked list.
 
-        Parameters:
-            item: l'item à vérifier
+        Args:
+            item: given item
         
-        Returns:
-            bool: True si contenue, False sinon
+        Return:
+            bool: True if content, False otherwise
         """
         return self.find(item) is not None
 
     
-    def is_empty(self):
+    def is_empty(self) -> bool:
         """
-        Vérifie si la liste chainée est vide.
+        Check if the linked list is empty.
 
-        Returns:
-            bool: True si vide, False sinon
+        Return:
+            bool: True si empty, False otherwise
         """
 
         return self.length == 0
 
-    def clear(self):
+    def clear(self) -> None:
         """
-        Vide la liste chainée
+        Empty the linked list.
         """
 
         self.head = None
         self.tail = None
         self.length = 0
     
-    def size(self):
+    def size(self) -> int:
         """
-        Retourne la taille de la liste chainée
+        Return the length of the linked list.
+
+        Return:
+            int: the lengthh of the linked list
         """
 
         return self.length
     
-    def __len__(self):
+    def __len__(self) -> int:
         """
-        Permet de faire len(LinkedList).
+        Allow to do len(linkedList).
+
+        Return:
+            int: the length of the linked list.
         """
 
         return self.length
     
-    def __str__(self):
+    def __str__(self) -> str:
         """
-        Représentation textuelle d'une liste chainée.
+        Return a textual representation of the linked list.
+
+        Return:
+            str: the textual representation of the linked list
         """
 
         return f"({self.head}, {self.tail})"
