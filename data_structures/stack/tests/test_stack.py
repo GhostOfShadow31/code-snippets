@@ -3,7 +3,7 @@ from stack import Stack
 
 class TestStack(unittest.TestCase):
     """
-    Tests de l'implémentation de la pile (Stack)
+    Testing the stack implementation.
     """
 
     def test_new_stack_is_empty(self):
