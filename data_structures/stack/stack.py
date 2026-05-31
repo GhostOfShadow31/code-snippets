@@ -1,113 +1,107 @@
-"""
-Structure de données : Pile (LIFO)
-"""
-
 class Stack:
     """
-    Représente une pile (Stack) utilisant le principe LIFO
+    A data structure called Stack based on the LIFO principle
     (Last In First Out).
     
-    Le dernier élément ajouté est le premier retiré.
+    The last item is the first one to come out.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
-        Initialise une pile vide.
+        Initialize an empty stack.
         """
 
         self.items = []
         self.length = 0
     
-    def push(self, item):
+    def push(self, item: any) -> None:
         """
-        Ajoute un élément au sommet de la pile.
+        Add an item at the top of the stack.
 
-        Parameters:
-            item: élément à ajouter.
+        Args:
+            item: item to add
         """
         
         self.length += 1
         self.items.append(item)
 
-    def pop(self):
+    def pop(self) -> any:
         """
-        Retire et retourne l'élément au sommet de la pile.
+        Remove and return the item at the top of the stack.
 
         Raises:
-            IndexError: si la pile est vide
+            IndexError: if stack is empty
+
+        Return:
+            any: the item at the top of the stack
         """
 
         if self.length == 0:
-            raise IndexError("La pile est vide.")
+            raise IndexError("Empty stack.")
 
         self.length -= 1
         return self.items.pop()
 
-    def peek(self):
+    def peek(self) -> any:
         """
-        Retourne l'élément au sommet sans le retirer.
+        Return the item at the top of the stack.
 
         Raises:
-            IndexError: si la pile est vide
+            IndexError: if stack is empty
+        
+        Return:
+            any: item at the top of the stack
         """
 
         if self.length == 0:
-            raise IndexError("La pile est vide.")
+            raise IndexError("Empty stack.")
         
         return self.items[self.length - 1]
 
-    def is_empty(self):
+    def is_empty(self) -> bool:
         """
-        Vérifie si la pile est vide.
+        Check is the stack is empty.
         
-        Returns:
-            bool: True si vide, False sinon
+        Return:
+            bool: True if empty, False otherwise
         """
 
         return self.length == 0
 
-    def size(self):
+    def size(self) -> int:
         """
-        Retourne la taille de la pile.
+        Return the length of the stack.
+
+        Return:
+            int: the length of the stack
         """
 
         return self.length
     
-    def clear(self):
+    def clear(self) -> None:
         """
-        Vide la pile.
+        Empty the stack.
         """
 
         self.length = 0
         self.items.clear()
 
-    def __len__(self):
+    def __len__(self) -> int:
         """
-        Permet de faire len(stack).
+        Allow to do len(stack).
+
+        Return:
+            int: the length of the stack
         """
 
         return self.length
     
-    def __str__(self):
+    def __str__(self) -> str:
         """
-        Retourne une représentation textuelle de la pile.
+        Return a textual representation of the stack.
+
+        Return:
+            str: the textual representation of the stack
         """
         
         return f"{self.items}"
-
-if __name__ == "__main__":
-    s = Stack()
-
-    s.push(10)
-    s.push(20)
-    s.push(30)
-
-    print(f"Pile avant opérations :\n{s}\n")
-
-    print(s.pop())      # 30
-    print(s.peek())     # 20
-    print(s.pop())      # 20
-    print(s.is_empty()) # False
-
-    print()
-    print(f"Pile après opérations :\n{s}\n")

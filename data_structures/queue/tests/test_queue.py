@@ -3,7 +3,7 @@ from queue import Queue
 
 class TestQueue(unittest.TestCase):
     """
-    Tests de l'implémentation de la file (Queue)
+    Testing the queue implementation.
     """
 
     def test_new_queue_is_empty(self):

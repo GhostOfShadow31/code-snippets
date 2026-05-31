@@ -1,113 +1,107 @@
-"""
-Structure de données : File (FIFO)
-"""
-
 class Queue:
     """
-    Représente une file (Queue) utilisant le principe FIFO
+    A data structure called Queue based on the FIFO principle
     (First In First Out).
     
-    Le premier élément ajouté est le premier retiré.
+    The first item is the first to come out.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
-        Initialise une file vide.
+        Initialize an empty queue.
         """
 
         self.items = []
         self.length = 0
     
-    def enqueue(self, item):
+    def enqueue(self, item: any) -> None:
         """
-        Ajoute un élément à la fin de la file.
+        Add an item at the end of the queue.
         
-        Parameters:
-            item: élément à rajouter.
+        Args:
+            item: item to add
         """
 
         self.length += 1
         self.items.append(item)
     
-    def dequeue(self):
+    def dequeue(self) -> any:
         """
-        Retire et retourne le premier élément de la file.
+        Remove and return the first item is the queue.
         
         Raises:
-            IndexError: si la file est vide
+            IndexError: if queue is empty
+        
+        Return:
+            any: the first item in the queue
         """
 
         if self.length == 0:
-            raise IndexError("La file est vide.")
+            raise IndexError("Empty queue.")
         
         self.length -= 1
         return self.items.pop(0)
 
-    def peek(self):
+    def peek(self) -> any:
         """
-        Retourne l'élément en tête de file sans le retirer.
+        Return the first item of the queue.
         
         Raises:
-            IndexError: si la file est vide
+            IndexError: if queue is empty
+        
+        Return:
+            any: the first item in the queue
         """
 
         if self.length == 0:
-            raise IndexError("La file est vide.")
+            raise IndexError("Empty queue.")
     
         return self.items[0]
     
-    def is_empty(self):
+    def is_empty(self) -> bool:
         """
-        Vérifie si la file est vide.
+        Check if the queue is empty.
         
-        Returns:
-            bool: True si vide, False sinon
+        Return:
+            bool: True if empty, False otherwise
         """
 
         return self.length == 0
 
-    def size(self):
+    def size(self) -> int:
         """
-        Retourne la taille de la file.
+        Return the length of the queue.
+
+        Return:
+            int: the length of the queue
         """
 
         return self.length
     
-    def clear(self):
+    def clear(self) -> None:
         """
-        Vide la file.
+        Empty the queue.
         """
 
         self.length = 0
         self.items.clear()
 
-    def __len__(self):
+    def __len__(self) -> int:
         """
-        Permet de faire len(queue).
+        Allow to do len(queue).
+
+        Return:
+            int: the length of the queue
         """
 
         return self.length
 
     def __str__(self):
         """
-        Retourne une représentation ntextuelle de la pile.
+        Return a textual representation of the queue.
+
+        Return:
+            str: the textual representation of the queue
         """
 
         return f"{self.items}"
-
-if __name__ == "__main__":
-    q = Queue()
-
-    q.enqueue(10)
-    q.enqueue(20)
-    q.enqueue(30)
-
-    print(f"File avant opérations :\n{q}\n")
-
-    print(q.dequeue())  # 10
-    print(q.peek())     # 20
-    print(q.dequeue())  # 20
-    print(q.is_empty()) # False
-
-    print()
-    print(f"File après opérations :\n{q}\n")
