@@ -8,7 +8,7 @@ class Stack:
 
     def __init__(self) -> None:
         """
-        Initialize an empy stack.
+        Initialize an empty stack.
         """
 
         self.items = []
@@ -62,7 +62,7 @@ class Stack:
         """
         Check is the stack is empty.
         
-        Returns:
+        Return:
             bool: True if empty, False otherwise
         """
 
